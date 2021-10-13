@@ -1,0 +1,11 @@
+
+{
+    "canisters": {
+        "governance": {
+            "type": "custom",
+            "build": "cargo build --target wasm32-unknown-unknown --package governance --release",
+            "candid": "canisters/governance/src/lib.did",
+            "wasm": "target/wasm32-unknown-unknown/release/governance.wasm"
+        }
+    }
+}

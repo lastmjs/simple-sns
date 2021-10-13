@@ -1,0 +1,9 @@
+
+[workspace]
+members = [
+    "canisters/governance",
+]
+
+[profile.release]
+lto = true
+opt-level = 'z'
