@@ -1,0 +1,34 @@
+# TODO make sure to turn off exporting the graphql query and mutation...maybe just mutation actually
+
+type Config {
+    id: ID!
+    num_tokens_to_create_proposal: Int!
+    target_canister_principal: String
+    threshold_to_adopt: Float!
+    token_principal: String!
+}
+
+type Proposal {
+    id: ID!
+    author_principal: String!
+    num_tokens_adopted: Int!
+    num_tokens_rejected: Int!
+    proposal_type: ProposalType!
+    title: String!
+    url: String!
+    votes: [Vote!]!
+    wasm_module: Blob!
+}
+
+type Vote {
+    id: ID!
+    adopt: Boolean!
+    num_tokens: Int!
+    voter_principal: String!
+}
+
+enum ProposalType {
+    CANISTER_CREATE
+    CANISTER_UPGRADE
+    CONFIG_UPDATE
+}
