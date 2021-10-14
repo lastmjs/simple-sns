@@ -31,3 +31,10 @@ dfx canister call governance configure '(1, null, .5, "renrk-eyaaa-aaaaa-aaada-c
 # Creates a proposal to create an empty canister
 dfx canister call governance create_proposal '(variant { CANISTER_CREATE }, "Create a canister", "https://google.com", blob "")'
 ```
+
+### Votes
+
+```bash
+# This casts an adopt vote for proposal with id 7ktvvp-sjrui-i4xf3-j7nxy-z4x6s-zsulr-nluy5-wcd5t-qnqc
+dfx canister call governance cast_vote '("7ktvvp-sjrui-i4xf3-j7nxy-z4x6s-zsulr-nluy5-wcd5t-qnqc", true)'
+```

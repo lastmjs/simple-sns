@@ -4,7 +4,7 @@ type Config {
     id: ID!
     num_tokens_to_create_proposal: Int!
     target_canister_principal: String
-    threshold_to_adopt: Float!
+    threshold_percentage_to_adopt: Float!
     token_principal: String!
 }
 
@@ -16,7 +16,7 @@ type Proposal {
     proposal_type: ProposalType!
     title: String!
     url: String!
-    votes: [Vote!]!
+    votes: [Vote!]! @relation(name: "Proposal:votes::Vote:proposal")
     wasm_module: Blob!
 }
 
@@ -24,6 +24,7 @@ type Vote {
     id: ID!
     adopt: Boolean!
     num_tokens: Int!
+    proposal: Proposal! @relation(name: "Proposal:votes::Vote:proposal")
     voter_principal: String!
 }
 
