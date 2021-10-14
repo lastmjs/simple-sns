@@ -20,7 +20,7 @@ dfx deploy governance
 
 # Find the canister id of the previously-created token canister
 # In this case, the token canister id is: renrk-eyaaa-aaaaa-aaada-cai
-# The parameters are as follows: num_tokens_to_create_proposal, target_canister_principal, threshold_to_adopt, token_principal
+# The parameters are as follows: num_tokens_to_create_proposal, target_canister_id, threshold_to_adopt, token_principal
 # Look at the configure function in the canister to understand these parameters better
 dfx canister call governance configure '(1, null, .5, "renrk-eyaaa-aaaaa-aaada-cai")'
 ```

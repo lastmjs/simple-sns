@@ -3,7 +3,7 @@
 type Config {
     id: ID!
     num_tokens_to_create_proposal: Int!
-    target_canister_principal: String
+    target_canister_id: String
     threshold_percentage_to_adopt: Float!
     token_principal: String!
 }
