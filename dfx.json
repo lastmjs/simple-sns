@@ -12,6 +12,10 @@
         },
         "dapp": {
             "main": "canisters/dapp/dapp.mo"
+        },
+        "frontend": {
+            "type": "assets",
+            "source": ["canisters/frontend/build"]
         }
     }
 }

@@ -1,0 +1,5 @@
+{
+    "scripts": {
+        "build": "cd canisters/frontend && npm install && npm run build"
+    }
+}

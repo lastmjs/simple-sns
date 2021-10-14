@@ -1,2 +1,4 @@
 .dfx
-/target
+target
+node_modules
+build
