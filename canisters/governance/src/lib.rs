@@ -481,34 +481,6 @@ async fn was_vote_already_cast(
     }
 }
 
-// #[ic_cdk_macros::query]
-async fn read_proposals() -> Vec<Proposal> {
-    let proposals_string = graphql_query(
-        "
-            query {
-                readProposal {
-                    id
-                    title
-                }
-            }
-        ".to_string(),
-        "{}".to_string()
-    ).await;
-
-    #[derive(serde::Deserialize)]
-    struct ProposalGQLResult {
-        readProposal: Vec<Proposal>
-    }
-
-    let proposals_result: GQLResult<ProposalGQLResult> = serde_json::from_str(&proposals_string).unwrap();
-
-    let proposals = proposals_result.data.readProposal;
-
-    ic_cdk::println!("proposals: {:#?}", proposals);
-
-    return proposals;
-}
-
 async fn get_balance(
     token_principal: candid::Principal,
     user_principal: candid::Principal

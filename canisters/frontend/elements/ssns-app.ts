@@ -4,10 +4,20 @@ import {
     TemplateResult
 } from 'lit-html';
 import { createObjectStore } from 'reduxular';
+import { Proposal } from '../types/index.d';
+import './ssns-create-proposal';
+import './ssns-proposals';
+import './ssns-configuration';
 
-type State = Readonly<{}>;
+type State = Readonly<{
+    proposals: ReadonlyArray<Proposal>;
+    showCreateProposal: boolean;
+}>;
 
-const InitialState: State = {};
+const InitialState: State = {
+    proposals: [],
+    showCreateProposal: false
+};
 
 class SSNSApp extends HTMLElement {
     shadow = this.attachShadow({
@@ -17,7 +27,38 @@ class SSNSApp extends HTMLElement {
 
     render(state: State): TemplateResult {
         return html`
-            <div>Hello there sir</div>
+            <style>
+            </style>
+
+            <div>
+                <h1>Configuration</h1>
+
+                <div>
+                    <ssns-configuration></ssns-configuration>
+                </div>
+
+                <h1>Proposals</h1>
+
+                <div>
+                    <button
+                        @click=${() => this.store.showCreateProposal = !this.store.showCreateProposal}
+                    >
+                        ${state.showCreateProposal == true ? 'Stop creating proposal' : 'Create proposal'}
+                    </button>
+                </div>
+
+                <br>
+
+                <div>
+                    <ssns-create-proposal ?hidden=${!state.showCreateProposal}></ssns-create-proposal>
+                </div>
+
+                <br>
+
+                <div>
+                    <ssns-proposals .proposals=${state.proposals}></ssns-proposals>
+                </div>
+            </div>
         `;
     }
 }

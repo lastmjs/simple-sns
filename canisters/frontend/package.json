@@ -7,6 +7,7 @@
     },
     "dependencies": {
         "lit-html": "2.0.1",
-        "reduxular": "0.0.6"
+        "reduxular": "0.0.6",
+        "sudograph": "0.4.3"
     }
 }
